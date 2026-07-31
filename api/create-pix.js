@@ -51,14 +51,7 @@ export default async function handler(req, res) {
         name: cleanName,
         email: cleanEmail,
         phone_number: cleanPhone,
-        document: cleanCpf,
-        street_name: street_name || "Rua Principal",
-        number: number || "100",
-        complement: "",
-        neighborhood: neighborhood || "Centro",
-        city: city || "São Paulo",
-        state: cleanState,
-        zip_code: cleanZip
+        document: cleanCpf
       },
       cart: [
         {
