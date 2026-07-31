@@ -60,21 +60,11 @@ export default async function handler(req, res) {
           title: PRODUCT_TITLE,
           cover: null,
           price: priceCents,
-          quantity: 1,
-          operation_type: 1,
-          tangible: false
+          quantity: 1
         }
       ],
       expire_in_days: 1,
       transaction_origin: "api",
-      tracking: {
-        src: tracking?.src || "",
-        utm_source: tracking?.utm_source || "",
-        utm_medium: tracking?.utm_medium || "",
-        utm_campaign: tracking?.utm_campaign || "",
-        utm_term: tracking?.utm_term || "",
-        utm_content: tracking?.utm_content || ""
-      },
       postback_url: `${siteUrl}/api/webhook/invictuspay`
     };
 
