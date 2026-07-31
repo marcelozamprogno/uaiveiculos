@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uai Veículos | Ofertas Exclusivas de Repasse</title>
+    <meta name="description" content="Encontre veículos de repasse com preços imperdíveis abaixo da tabela FIPE na Uai Veículos. Seminovos e usados com transparência e garantia de procedência.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Top Notice Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <span><i class="fa-solid fa-fire"></i> LOTE DE REPASSE ATUALIZADO HOJE</span>
+            <span class="top-bar-timer"><i class="fa-regular fa-clock"></i> As ofertas expiram em <strong id="countdown">04:32:15</strong></span>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-car-side logo-icon"></i>
+                <div class="logo-text">
+                    <span class="brand-name">UAI <span>VEÍCULOS</span></span>
+                    <span class="brand-tag">REPASSE EXCLUSIVO</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#estoque" class="active">Estoque</a>
+                <a href="#como-funciona">Como Funciona</a>
+                <a href="#localizacao">Localização</a>
+            </nav>
+            <a href="https://wa.me/5531999999999?text=Olá,%20gostaria%20de%20receber%20a%20lista%20VIP%20de%20repasse" target="_blank" class="btn btn-whatsapp header-btn">
+                <i class="fa-brands fa-whatsapp"></i> Entrar no Grupo VIP
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="hero-badge"><i class="fa-solid fa-bolt"></i> Oportunidades Diretas de Repasse</span>
+            <h1 class="hero-title">Compre Carros de Repasse com até <span>30% Abaixo da FIPE</span></h1>
+            <p class="hero-subtitle">Veículos selecionados, laudo cautelar aprovado e margem excelente para revendedores e clientes finais.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">+1.500</span>
+                    <span class="stat-label">Carros Entregues</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Procedência Checada</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">Envio</span>
+                    <span class="stat-label">Para Todo o Brasil</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="filter-section" id="estoque">
+        <div class="container">
+            <div class="filter-box">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por marca, modelo ou ano (ex: Civic, Onix, 2021)...">
+                </div>
+                <div class="filter-chips">
+                    <button class="chip active" data-filter="all">Todos</button>
+                    <button class="chip" data-filter="sedan">Sedans</button>
+                    <button class="chip" data-filter="suv">SUVs</button>
+                    <button class="chip" data-filter="hatch">Hatchbacks</button>
+                    <button class="chip" data-filter="picape">Pick-ups</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicles Catalog Grid -->
+    <section class="catalog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Veículos Disponíveis no Lote</h2>
+                <p>Estoque atualizado em tempo real. Garanta sua reserva antes que esgote.</p>
+            </div>
+            
+            <div class="vehicle-grid" id="vehicleGrid">
+                <!-- Vehicle Cards standard injected via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & API Integration Section -->
+    <section class="location-section" id="localizacao">
+        <div class="container">
+            <div class="location-card">
+                <div class="location-info">
+                    <span class="sub-title"><i class="fa-solid fa-location-dot"></i> Venha Nos Visitar</span>
+                    <h2>Pátio Central Uai Veículos</h2>
+                    <p class="address-text" id="addressText">Carregando endereço do pátio...</p>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <strong>Horário de Atendimento</strong>
+                                <span>Seg a Sex: 08:00 às 18:00 | Sáb: 08:00 às 13:00</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div>
+                                <strong>Agendamento Seguro</strong>
+                                <span>Visitas somente com horário agendado com nossos consultores</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline" id="gmapsBtn">
+                        <i class="fa-solid fa-map-location-dot"></i> Abrir no Google Maps
+                    </a>
+                </div>
+
+                <div class="location-map-wrapper">
+                    <div class="map-placeholder" id="mapBox">
+                        <i class="fa-solid fa-compass fa-spin map-icon"></i>
+                        <span>Obtendo coordenadas da API...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Proposal Modal (Pop-up) -->
+    <div class="modal-overlay" id="leadModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-badge"><i class="fa-solid fa-car"></i> Reserva Direta de Repasse</span>
+                <h3 id="modalVehicleTitle">Nome do Veículo</h3>
+                <p class="modal-price-line">Preço de Repasse: <strong id="modalVehiclePrice">R$ 0,00</strong></p>
+            </div>
+            <div class="modal-body">
+                <form id="proposalForm">
+                    <div class="form-group">
+                        <label for="userName">Seu Nome Completo</label>
+                        <input type="text" id="userName" placeholder="Ex: Marcelo Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhone">Seu WhatsApp com DDD</label>
+                        <input type="tel" id="userPhone" placeholder="(31) 99999-9999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userCity">Sua Cidade / Estado</label>
+                        <input type="text" id="userCity" placeholder="Ex: Belo Horizonte / MG" required>
+                    </div>
+                    <button type="submit" class="btn btn-whatsapp btn-full">
+                        <i class="fa-brands fa-whatsapp"></i> Falar com Consultor e Garantir Reserva
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Social Proof Urgency Toast -->
+    <div class="urgency-toast" id="urgencyToast">
+        <div class="toast-icon"><i class="fa-solid fa-user-check"></i></div>
+        <div class="toast-content">
+            <strong id="toastUser">João S. (Belo Horizonte)</strong>
+            <span id="toastAction">acabou de solicitar reserva para Toyota Corolla 2020!</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="brand-name">UAI <span>VEÍCULOS</span></div>
+                <p>Plataforma líder em repasse e revenda com garantia de procedência.</p>
+            </div>
+            <p class="copyright">&copy; 2026 Uai Veículos Repasse. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

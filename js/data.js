@@ -1,0 +1,87 @@
+// Vehicle Catalog Data
+const vehiclesData = [
+    {
+        id: 1,
+        title: "Toyota Corolla 2.0 XEi Flex",
+        year: "2021 / 2021",
+        km: "42.000 km",
+        category: "sedan",
+        priceFipe: 124900,
+        priceRepasse: 98900,
+        discountText: "20% Abaixo FIPE",
+        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80",
+        transmission: "Automático",
+        fuel: "Flex",
+        status: "Disponível"
+    },
+    {
+        id: 2,
+        title: "Jeep Compass 1.3 T270 Limited",
+        year: "2022 / 2022",
+        km: "31.500 km",
+        category: "suv",
+        priceFipe: 148500,
+        priceRepasse: 119900,
+        discountText: "25k de Desconto",
+        image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+        transmission: "Automático",
+        fuel: "Flex",
+        status: "Disponível"
+    },
+    {
+        id: 3,
+        title: "Chevrolet Onix 1.0 Turbo LTZ",
+        year: "2021 / 2022",
+        km: "38.000 km",
+        category: "hatch",
+        priceFipe: 76900,
+        priceRepasse: 59900,
+        discountText: "Repasse Rápido",
+        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+        transmission: "Manual",
+        fuel: "Flex",
+        status: "Disponível"
+    },
+    {
+        id: 4,
+        title: "Toyota Hilux 2.8 SRX 4x4 Diesel",
+        year: "2020 / 2020",
+        km: "65.000 km",
+        category: "picape",
+        priceFipe: 219000,
+        priceRepasse: 179900,
+        discountText: "Oportunidade Única",
+        image: "https://images.unsplash.com/photo-1559416523-140ddc3d238c?auto=format&fit=crop&w=800&q=80",
+        transmission: "Automático",
+        fuel: "Diesel",
+        status: "Disponível"
+    },
+    {
+        id: 5,
+        title: "Honda Civic 2.0 EXL Sedan",
+        year: "2020 / 2021",
+        km: "49.000 km",
+        category: "sedan",
+        priceFipe: 118000,
+        priceRepasse: 94500,
+        discountText: "Laudo 100% Aprovado",
+        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80",
+        transmission: "Automático",
+        fuel: "Flex",
+        status: "Disponível"
+    },
+    {
+        id: 6,
+        title: "Volkswagen T-Cross 1.0 TSI Comfortline",
+        year: "2021 / 2021",
+        km: "35.000 km",
+        category: "suv",
+        priceFipe: 109900,
+        priceRepasse: 87900,
+        discountText: "Margem p/ Revenda",
+        image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80",
+        transmission: "Automático",
+        fuel: "Flex",
+        status: "Disponível"
+    }
+];
