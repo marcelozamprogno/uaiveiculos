@@ -2,218 +2,24 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REPASSES UAI VEÍCULOS | Grupo Oficial</title>
-    <meta name="description" content="Grupo de repasse oficial da Uai Veículos. Carros, motos e caminhões abaixo da FIPE.">
-    <!-- Google Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Uai Veículos — Checkout VIP</title>
+    <meta name="description" content="Uai Veículos — Checkout VIP">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Uai Veículos — Checkout VIP">
+    <meta property="og:description" content="Uai Veículos — Checkout VIP">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Uai Veículos — Checkout VIP">
+    <meta name="twitter:description" content="Uai Veículos — Checkout VIP">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script type="module" crossorigin="" src="js/index-Cav2mZA_.js"></script>
+    <link rel="stylesheet" crossorigin="" href="css/index-CbwQc7T9.css">
 </head>
 <body>
-
-    <!-- Main Mobile/Tablet Centered Container -->
-    <main class="app-wrapper">
-
-        <!-- Top Header Buttons -->
-        <header class="top-nav">
-            <a href="https://wa.me/5531999999999" target="_blank" class="nav-pill nav-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="https://instagram.com" target="_blank" class="nav-pill nav-instagram">
-                <i class="fa-brands fa-instagram"></i> Oficial 3,3 mi
-            </a>
-        </header>
-
-        <!-- Brand Profile Header -->
-        <section class="profile-header">
-            <div class="avatar-container">
-                <div class="avatar-badge">
-                    <svg viewBox="0 0 100 100" class="logo-svg">
-                        <circle cx="50" cy="50" r="48" fill="#0b0b0b" stroke="#d4af37" stroke-width="2"/>
-                        <polygon points="50,15 85,35 85,75 50,95 15,75 15,35" fill="none" stroke="#d4af37" stroke-width="1.5"/>
-                        <text x="50" y="48" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle">UAI</text>
-                        <text x="50" y="62" font-family="'Inter', sans-serif" font-weight="700" font-size="8" fill="#d4af37" text-anchor="middle">VEÍCULOS</text>
-                        <path d="M30 70 L70 70" stroke="#d4af37" stroke-width="1"/>
-                        <text x="50" y="78" font-size="6" fill="#d4af37" text-anchor="middle">★★★★★</text>
-                    </svg>
-                </div>
-            </div>
-
-            <h1 class="profile-title">
-                REPASSES UAI VEÍCULOS 
-                <span class="verified-badge"><i class="fa-solid fa-check"></i></span>
-            </h1>
-
-            <div class="members-count">Grupo · <span>475 membros</span></div>
-
-            <p class="profile-description">
-                Grupo de repasse oficial da Uai Veículos. Carros, motos e caminhões abaixo da FIPE.
-            </p>
-
-            <a href="https://chat.whatsapp.com/" target="_blank" class="btn-main-cta">
-                Entrar no Grupo
-            </a>
-        </section>
-
-        <!-- Dynamic Location Available Cars Section -->
-        <section class="cars-card-section">
-            <div class="location-title-box">
-                <p>📍 Alguns repasses disponíveis em <strong id="userState">Espírito Santo</strong>:</p>
-                <span class="location-sub">A Uai Veículos também posta diariamente oportunidades de repasse em todo o Brasil.</span>
-            </div>
-
-            <div class="cars-grid" id="carsGrid">
-                <!-- 8 Car Cards injected dynamically -->
-            </div>
-        </section>
-
-        <!-- Social Proof Toast Notification (Floating) -->
-        <div class="toast-notification" id="toastNotice">
-            <div class="toast-avatar">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Usuário" id="toastImg">
-                <span class="toast-wa-icon"><i class="fa-brands fa-whatsapp"></i></span>
-            </div>
-            <div class="toast-body">
-                <strong id="toastName">Marcos Antônio Souza</strong>
-                <span>acabou de entrar no <strong class="text-green">Grupo de Repasses</strong></span>
-            </div>
-        </div>
-
-        <!-- Testimonial 1 -->
-        <section class="testimonial-card">
-            <p class="testimonial-text">
-                Peguei esse Gol G7 2023 por R$32.000 dentro do grupo. Fipe dele tá R$54 mil, fui desconfiado achando que tinha pegadinha mas o carro tá redondo demais, motor impecável. Já anunciei por 48 e tenho gente interessada. Só a primeira compra já pagou a entrada no grupo umas 300 vezes kkkk
-            </p>
-            <div class="testimonial-img-box">
-                <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80" alt="Gol G7 Prata">
-            </div>
-        </section>
-
-        <!-- Testimonial 2 -->
-        <section class="testimonial-card">
-            <div class="user-header">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Antônio Carlos" class="user-avatar">
-                <div>
-                    <strong class="user-name">Antônio Carlos <i class="fa-solid fa-circle-check text-green"></i></strong>
-                    <div class="rating-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span>há 5 dias</span>
-                    </div>
-                </div>
-            </div>
-            <p class="testimonial-text">
-                Esse Onix era pra minha esposa mas gostei tanto que fiquei pra mim kkk. Paguei R$28.900 num carro que a Fipe marca 45. Fechei direto com a loja que o pastor indicou no grupo, tudo no cartório, documentação certinha. Nunca imaginei comprar carro assim nessa idade, valeu demais.
-            </p>
-            <div class="testimonial-img-box">
-                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Onix Grafite">
-            </div>
-        </section>
-
-        <!-- Testimonial 3 -->
-        <section class="testimonial-card">
-            <div class="user-header">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Marcos Maia" class="user-avatar">
-                <div>
-                    <strong class="user-name">Marcos Maia <i class="fa-solid fa-circle-check text-green"></i></strong>
-                    <div class="rating-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span>há 1 semana</span>
-                    </div>
-                </div>
-            </div>
-            <p class="testimonial-text">
-                Comprei essa Strada por R$29.900 pra rodar na minha distribuidora. Tava precisando de um utilitário e não tinha condição de pagar preço de loja. Apareceu no grupo numa quinta, sexta de manhã já busquei. Carroceria e mecânica em dia, já tá trabalhando. Semana que vem vou atrás da segunda.
-            </p>
-            <div class="testimonial-img-box">
-                <img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?auto=format&fit=crop&w=800&q=80" alt="Fiat Strada Branca">
-            </div>
-        </section>
-
-        <!-- FAQ Box: Why are these cars so cheap? -->
-        <section class="faq-card">
-            <h2>Por que esses carros estão tão baratos?</h2>
-            <p>Lojas que vendem carros novos recebem usados como parte do pagamento na troca — e aceitam esses veículos <strong>bem abaixo do preço de mercado</strong> para fechar a venda do zero-quilômetro na hora.</p>
-            <p>Carro parado no pátio é prejuízo diário: IPVA, seguro, espaço e depreciação. Por isso a loja prefere <strong>repassar rápido</strong> do que segurar o estoque meses esperando o preço cheio.</p>
-            <p>A Uai Veículos conecta diretamente o comprador a essas lojas — <strong>sem intermediário, sem taxa de anúncio</strong>. O veículo sai da loja direto para quem compra, com preço de custo real.</p>
-
-            <div class="green-callout">
-                Esses preços não são erro. São veículos com documentação completa que as lojas precisam repassar rápido. Quem está no grupo tem acesso antes de ir para o mercado pelo preço cheio.
-            </div>
-        </section>
-
-        <!-- Progress Bar Box -->
-        <section class="progress-card">
-            <div class="progress-header">
-                <div class="group-icon-box"><i class="fa-solid fa-users text-green"></i></div>
-                <div>
-                    <strong>Grupo fechado · vagas limitadas</strong>
-                    <span class="vagas-text">Apenas <span id="vagasCount">24</span> vagas restantes de 500</span>
-                </div>
-            </div>
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill" style="width: 95.2%;"></div>
-            </div>
-            <div class="progress-footer">
-                <span>476/500</span>
-            </div>
-        </section>
-
-        <!-- Official Banner Graphic Section -->
-        <section class="banner-card">
-            <div class="banner-inner">
-                <div class="banner-badge">UAI REPASSES</div>
-                <h2>UAI REPASSES</h2>
-                <h3>OS MELHORES CARROS, ANTES DE TODO MUNDO.</h3>
-                <div class="fipe-tag"><i class="fa-solid fa-tag"></i> CARROS COM ATÉ <strong>R$30.000</strong> ABAIXO DA TABELA FIPE!</div>
-
-                <div class="banner-grid-features">
-                    <div class="feat-item">
-                        <i class="fa-regular fa-calendar-check"></i>
-                        <strong>ACESSO ANTECIPADO</strong>
-                        <span>Você vê primeiro, compra antes.</span>
-                    </div>
-                    <div class="feat-item">
-                        <i class="fa-solid fa-sack-dollar"></i>
-                        <strong>ECONOMIZE ATÉ R$30.000</strong>
-                        <span>Oportunidades reais de economia.</span>
-                    </div>
-                    <div class="feat-item">
-                        <i class="fa-solid fa-user-group"></i>
-                        <strong>COMUNIDADE EXCLUSIVA</strong>
-                        <span>Conexões e oportunidades.</span>
-                    </div>
-                    <div class="feat-item">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <strong>SEGURANÇA E TRANSPARÊNCIA</strong>
-                        <span>Processos claros e confiáveis.</span>
-                    </div>
-                </div>
-
-                <div class="founder-info">
-                    <strong>Pr. Evandro Ferracini</strong>
-                    <span>FUNDADOR DA UAI VEÍCULOS</span>
-                </div>
-
-                <a href="https://chat.whatsapp.com/" target="_blank" class="yellow-cta">
-                    <i class="fa-solid fa-circle-chevron-right"></i> ACESSO ANTECIPADO É VANTAGEM REAL. QUEM CHEGA PRIMEIRO, ESCOLHE MELHOR!
-                </a>
-            </div>
-        </section>
-
-        <!-- Final Floating CTA Button -->
-        <div class="bottom-sticky-cta">
-            <a href="https://chat.whatsapp.com/" target="_blank" class="btn-main-cta">
-                Entrar no Grupo de Repasse
-            </a>
-        </div>
-
-    </main>
-
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
+    <div id="root"></div>
 </body>
 </html>
