@@ -103,7 +103,7 @@ export default async function handler(req, res) {
     } catch (e) {
       return res.status(502).json({
         success: false,
-        error: "Erro na resposta da Invictus Pay: " + responseText.slice(0, 150)
+        error: "Resposta da Invictus não é JSON: " + responseText.slice(0, 100)
       });
     }
 
@@ -137,7 +137,7 @@ export default async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({
       success: false,
-      error: "Erro na requisição: " + (err.message || String(err))
+      error: "Erro no backend: " + (err.stack || err.message || String(err))
     });
   }
 }
