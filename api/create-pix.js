@@ -1,6 +1,6 @@
 const INVICTUS_API_TOKEN = process.env.INVICTUS_API_TOKEN || "UZ2ivfjG3UiAtzSTmr40uU0WrTTjxwhwYJ6pUMurg7Y84F9lCZSCtaCmBz36";
-const OFFER_HASH = "qwkgxofjwk";
-const PRODUCT_HASH = "q4u7vhdt8i";
+const OFFER_HASH = process.env.INVICTUS_OFFER_HASH || "qwkgxofjwk";
+const PRODUCT_HASH = process.env.INVICTUS_PRODUCT_HASH || "q4u7vhdt8i";
 const PRODUCT_TITLE = "Repasses UAI Veículos - Vaga VIP";
 const DEFAULT_PRICE_CENTS = 4990;
 
@@ -100,7 +100,7 @@ export default async function handler(req, res) {
     try {
       responseData = JSON.parse(responseText);
     } catch (e) {
-      return res.status(502).json({
+      return res.status(200).json({
         success: false,
         error: "Resposta da Invictus não é JSON: " + responseText.slice(0, 100)
       });
@@ -134,7 +134,7 @@ export default async function handler(req, res) {
       raw: responseData
     });
   } catch (err) {
-    return res.status(500).json({
+    return res.status(200).json({
       success: false,
       error: "Erro no backend: " + (err.message || String(err))
     });
