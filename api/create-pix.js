@@ -107,7 +107,6 @@ export default async function handler(req, res) {
       });
     }
 
-    // Extract Pix details from Invictus response
     const pixData = responseData.data || responseData.pix || responseData;
     const transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash || pixData.transaction_id;
     const pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste;
