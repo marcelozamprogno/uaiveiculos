@@ -108,7 +108,7 @@ export default async function handler(req, res) {
 
     if (!invictusResponse.ok || responseData.status === "error" || responseData.success === false) {
       const msg = responseData.message || responseData.error || (responseData.errors ? JSON.stringify(responseData.errors) : "Falha ao gerar o PIX na Invictus Pay.");
-      return res.status(400).json({
+      return res.status(200).json({
         success: false,
         error: msg,
         details: responseData
