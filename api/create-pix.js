@@ -26,7 +26,6 @@ export default async function handler(req, res) {
     const data = body.data || body;
     const { name, cpf, phone, email, zip_code, street_name, number, neighborhood, city, state, tracking } = data;
 
-    // Clean formatting
     const cleanCpf = (cpf || "").toString().replace(/\D/g, "");
     const cleanPhone = (phone || "").toString().replace(/\D/g, "");
     const cleanName = (name || "").trim();
@@ -34,7 +33,6 @@ export default async function handler(req, res) {
     const cleanState = (state || "SP").trim().toUpperCase().slice(0, 2);
     const cleanZip = (zip_code || "01001000").toString().replace(/\D/g, "");
 
-    // Validation
     if (!cleanName || cleanName.length < 2) {
       return res.status(400).json({ success: false, error: "Nome completo é obrigatório." });
     }
@@ -90,41 +88,39 @@ export default async function handler(req, res) {
       postback_url: `${siteUrl}/api/webhook/invictuspay`
     };
 
-    const invictusResponse = await fetch(
-      `https://api.invictuspay.app.br/api/public/v1/transactions?api_token=${INVICTUS_API_TOKEN}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(invictusPayload)
-      }
-    );
+    const invictusUrl = `https://api.invictuspay.app.br/api/public/v1/transactions?api_token=${INVICTUS_API_TOKEN}`;
+
+    const invictusResponse = await fetch(invictusUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(invictusPayload)
+    });
 
     const responseText = await invictusResponse.text();
-    let responseData;
+    let responseData = {};
     try {
       responseData = JSON.parse(responseText);
     } catch (e) {
-      console.error("Invictus non-json response:", responseText);
       return res.status(502).json({
         success: false,
-        error: "Resposta inválida da plataforma de pagamento."
+        error: "Erro na resposta da Invictus Pay: " + responseText.slice(0, 150)
       });
     }
 
-    if (!invictusResponse.ok || (responseData.status === "error" || responseData.success === false)) {
-      const msg = responseData.message || responseData.error || responseData.errors?.[0] || "Falha ao gerar o PIX na Invictus Pay.";
-      return res.status(invictusResponse.status || 400).json({
+    if (!invictusResponse.ok || responseData.status === "error" || responseData.success === false) {
+      const msg = responseData.message || responseData.error || (responseData.errors ? JSON.stringify(responseData.errors) : "Falha ao gerar o PIX na Invictus Pay.");
+      return res.status(400).json({
         success: false,
-        error: msg
+        error: msg,
+        details: responseData
       });
     }
 
-    // Extract Pix data from Invictus Pay JSON structure
     const pixData = responseData.data || responseData.pix || responseData;
-    const transactionId = responseData.id || responseData.transaction_id || pixData.id || pixData.transaction_id || responseData.hash;
+    const transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash;
     const pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code;
     const qrCodeUrl = pixData.pix_url || pixData.qr_code_url || pixData.qrcode_url || responseData.pix_url;
     const expirationDate = pixData.expiration_date || responseData.expiration_date || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
@@ -140,10 +136,9 @@ export default async function handler(req, res) {
       raw: responseData
     });
   } catch (err) {
-    console.error("Internal Error creating Pix:", err);
     return res.status(500).json({
       success: false,
-      error: "Erro interno no servidor ao processar pagamento PIX."
+      error: "Erro inesperado: " + (err.message || String(err))
     });
   }
 }
