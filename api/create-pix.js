@@ -22,14 +22,13 @@ export default async function handler(req, res) {
   }
 
   try {
-    let body = req.body || {};
-    if (typeof body === "string") {
-      try {
-        body = JSON.parse(body);
-      } catch (e) {
-        body = {};
-      }
+    let body = {};
+    try {
+      body = typeof req.body === "string" ? JSON.parse(req.body) : (req.body || {});
+    } catch (e) {
+      body = {};
     }
+
     const data = body.data || body;
     const { name, cpf, phone, email, zip_code, street_name, number, neighborhood, city, state, tracking } = data;
 
@@ -137,7 +136,7 @@ export default async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({
       success: false,
-      error: "Erro no backend: " + (err.stack || err.message || String(err))
+      error: "Erro no backend: " + (err.message || String(err))
     });
   }
 }
