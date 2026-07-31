@@ -34,20 +34,10 @@ export default async function handler(req, res) {
 
     const cleanCpf = (cpf || "").toString().replace(/\D/g, "");
     const cleanPhone = (phone || "").toString().replace(/\D/g, "");
-    const cleanName = (name || "").trim();
+    const cleanName = (name || "").trim() || "Comprador VIP";
     const cleanEmail = (email || "").trim() || `${cleanPhone || "cliente"}@cliente.com`;
     const cleanState = (state || "SP").trim().toUpperCase().slice(0, 2);
     const cleanZip = (zip_code || "01001000").toString().replace(/\D/g, "");
-
-    if (!cleanName || cleanName.length < 2) {
-      return res.status(400).json({ success: false, error: "Nome completo é obrigatório." });
-    }
-    if (!cleanCpf || cleanCpf.length !== 11) {
-      return res.status(400).json({ success: false, error: "CPF inválido. Informe 11 dígitos." });
-    }
-    if (!cleanPhone || cleanPhone.length < 10) {
-      return res.status(400).json({ success: false, error: "Telefone com DDD é obrigatório." });
-    }
 
     const host = req.headers.host || "uaiveiculos-ztbn.vercel.app";
     const protocol = req.headers["x-forwarded-proto"] || "https";
@@ -128,7 +118,8 @@ export default async function handler(req, res) {
     const pixData = responseData.data || responseData.pix || responseData;
     const transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash || pixData.transaction_id;
     const pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste;
-    const qrCodeUrl = pixData.pix_url || pixData.qr_code_url || pixData.qrcode_url || responseData.pix_url || responseData.qr_code_url;
+    const qrCodeUrl = pixData.pix_url || pixData.qr_code_url || pixData.qrcode_url || responseData.pix_url || responseData.qr_code_url || `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(pixCode || "")}`;
+    const qrCodeImage = pixData.qr_code_image || pixData.qrcode_image || qrCodeUrl;
     const expirationDate = pixData.expiration_date || responseData.expiration_date || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
     return res.status(200).json({
@@ -137,6 +128,7 @@ export default async function handler(req, res) {
       provider: "invictuspay",
       pix_code: pixCode,
       pix_url: qrCodeUrl,
+      qr_code_image: qrCodeImage,
       expiration_date: expirationDate,
       status: "pending",
       raw: responseData
