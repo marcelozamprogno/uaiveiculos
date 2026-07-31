@@ -1,87 +1,60 @@
-// Vehicle Catalog Data
-const vehiclesData = [
+// Exact Car Catalog Data matching live Uai Veículos site
+const repasseCars = [
     {
-        id: 1,
-        title: "Toyota Corolla 2.0 XEi Flex",
-        year: "2021 / 2021",
-        km: "42.000 km",
-        category: "sedan",
-        priceFipe: 124900,
-        priceRepasse: 98900,
-        discountText: "20% Abaixo FIPE",
-        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80",
-        transmission: "Automático",
-        fuel: "Flex",
-        status: "Disponível"
+        name: "Corsa Wind 2002",
+        price: "R$ 6.900",
+        badge: "DISPONÍVEL",
+        isOverlay: false,
+        image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=400&q=80"
     },
     {
-        id: 2,
-        title: "Jeep Compass 1.3 T270 Limited",
-        year: "2022 / 2022",
-        km: "31.500 km",
-        category: "suv",
-        priceFipe: 148500,
-        priceRepasse: 119900,
-        discountText: "25k de Desconto",
-        image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
-        transmission: "Automático",
-        fuel: "Flex",
-        status: "Disponível"
+        name: "Celta Life 2006",
+        price: "R$ 9.490",
+        badge: "DISPONÍVEL",
+        isOverlay: false,
+        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=400&q=80"
     },
     {
-        id: 3,
-        title: "Chevrolet Onix 1.0 Turbo LTZ",
-        year: "2021 / 2022",
-        km: "38.000 km",
-        category: "hatch",
-        priceFipe: 76900,
-        priceRepasse: 59900,
-        discountText: "Repasse Rápido",
-        image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
-        transmission: "Manual",
-        fuel: "Flex",
-        status: "Disponível"
+        name: "Palio ELX 2005",
+        price: "R$ 11.900",
+        badge: "DISPONÍVEL",
+        isOverlay: false,
+        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
     },
     {
-        id: 4,
-        title: "Toyota Hilux 2.8 SRX 4x4 Diesel",
-        year: "2020 / 2020",
-        km: "65.000 km",
-        category: "picape",
-        priceFipe: 219000,
-        priceRepasse: 179900,
-        discountText: "Oportunidade Única",
-        image: "https://images.unsplash.com/photo-1559416523-140ddc3d238c?auto=format&fit=crop&w=800&q=80",
-        transmission: "Automático",
-        fuel: "Diesel",
-        status: "Disponível"
+        name: "Gol G4 2008",
+        price: "R$ 14.900",
+        badge: "DISPONÍVEL",
+        isOverlay: false,
+        image: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=400&q=80"
     },
     {
-        id: 5,
-        title: "Honda Civic 2.0 EXL Sedan",
-        year: "2020 / 2021",
-        km: "49.000 km",
-        category: "sedan",
-        priceFipe: 118000,
-        priceRepasse: 94500,
-        discountText: "Laudo 100% Aprovado",
-        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80",
-        transmission: "Automático",
-        fuel: "Flex",
-        status: "Disponível"
+        name: "Onix LT 2019",
+        price: "R$ 32.900",
+        badge: "DISPONÍVEL",
+        isOverlay: false,
+        image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=400&q=80"
     },
     {
-        id: 6,
-        title: "Volkswagen T-Cross 1.0 TSI Comfortline",
-        year: "2021 / 2021",
-        km: "35.000 km",
-        category: "suv",
-        priceFipe: 109900,
-        priceRepasse: 87900,
-        discountText: "Margem p/ Revenda",
-        image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80",
-        transmission: "Automático",
-        fuel: "Flex",
-        status: "Disponível"
+        name: "HB20 1.6 2018",
+        price: "R$ 25.900",
+        badge: "DISPONÍVEL",
+        isOverlay: false,
+        image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Civic LXR 2013",
+        price: "R$ 35.200",
+        badge: "DISPONÍVEL",
+        isOverlay: false,
+        image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Corolla 2014",
+        price: "R$ 38.800",
+        badge: "DISPONÍVEL",
+        isOverlay: true,
+        overlayText: "+623 veículos disponíveis",
+        image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=400&q=80"
     }
 ];
