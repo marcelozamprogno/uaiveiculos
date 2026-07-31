@@ -119,10 +119,11 @@ export default async function handler(req, res) {
       });
     }
 
+    // Extract Pix response fields dynamically
     const pixData = responseData.data || responseData.pix || responseData;
-    const transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash;
-    const pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code;
-    const qrCodeUrl = pixData.pix_url || pixData.qr_code_url || pixData.qrcode_url || responseData.pix_url;
+    const transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash || pixData.transaction_id;
+    const pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste;
+    const qrCodeUrl = pixData.pix_url || pixData.qr_code_url || pixData.qrcode_url || responseData.pix_url || responseData.qr_code_url;
     const expirationDate = pixData.expiration_date || responseData.expiration_date || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
     return res.status(200).json({
