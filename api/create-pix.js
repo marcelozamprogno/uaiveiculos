@@ -22,7 +22,13 @@ export default async function handler(req, res) {
   }
 
   try {
-    const body = req.body || {};
+    let body = req.body;
+    if (typeof body === "string") {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {}
+    }
+    body = body || {};
     const data = body.data || body;
     const { name, cpf, phone, email, zip_code, street_name, number, neighborhood, city, state, tracking } = data;
 
@@ -119,7 +125,6 @@ export default async function handler(req, res) {
       });
     }
 
-    // Extract Pix response fields dynamically
     const pixData = responseData.data || responseData.pix || responseData;
     const transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash || pixData.transaction_id;
     const pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste;
