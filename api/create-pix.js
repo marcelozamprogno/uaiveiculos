@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     const cleanCpf = (cpf || "").toString().replace(/\D/g, "");
     const cleanPhone = (phone || "").toString().replace(/\D/g, "");
     const cleanName = (name || "").trim() || "Comprador VIP";
-    const cleanEmail = (email || "").trim() || `${cleanPhone || "cliente"}${Math.floor(Math.random()*1000)}@gmail.com`;
+    const cleanEmail = (email || "").trim() || `cliente${cleanPhone || "123"}@gmail.com`;
     const cleanState = (state || "SP").trim().toUpperCase().slice(0, 2);
     const cleanZip = (zip_code || "01001000").toString().replace(/\D/g, "");
 
@@ -109,15 +109,15 @@ export default async function handler(req, res) {
 
     const pixData = responseData.data || responseData.pix || responseData;
     const transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash || pixData.transaction_id;
-    const pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste;
+    const pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste || (responseData.data && responseData.data.pix_code);
     const qrCodeUrl = pixData.pix_url || pixData.qr_code_url || pixData.qrcode_url || responseData.pix_url || responseData.qr_code_url || (pixCode ? `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(pixCode)}` : "");
     const qrCodeImage = pixData.qr_code_image || pixData.qrcode_image || qrCodeUrl;
     const expirationDate = pixData.expiration_date || responseData.expiration_date || new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
-    const isSuccess = !!pixCode || (invictusResponse.ok && responseData.status !== "error" && responseData.success !== false);
+    const isSuccess = !!pixCode || (invictusResponse.ok && responseData.status !== "error" && responseData.success !== false && responseData.status !== "Falha");
 
-    if (!isSuccess) {
-      const msg = responseData.message || responseData.error || (responseData.errors ? JSON.stringify(responseData.errors) : "Falha ao gerar o PIX na Invictus Pay.");
+    if (!isSuccess || !pixCode) {
+      const msg = responseData.message || responseData.error || (responseData.errors ? JSON.stringify(responseData.errors) : "A Invictus Pay recusou a transação (Status: Falha). Verifique se o produto exige endereço completo ou ativação.");
       return res.status(200).json({
         success: false,
         error: msg,
