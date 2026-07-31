@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    let body = req.body;
+    let body = req.body || {};
     if (typeof body === "string") {
       try {
         body = JSON.parse(body);
@@ -30,7 +30,6 @@ export default async function handler(req, res) {
         body = {};
       }
     }
-    body = body || {};
     const data = body.data || body;
     const { name, cpf, phone, email, zip_code, street_name, number, neighborhood, city, state, tracking } = data;
 
@@ -138,7 +137,7 @@ export default async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({
       success: false,
-      error: "Erro no servidor: " + (err.message || String(err))
+      error: "Erro na requisição: " + (err.message || String(err))
     });
   }
 }
