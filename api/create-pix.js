@@ -1,8 +1,8 @@
 const INVICTUS_API_TOKEN = process.env.INVICTUS_API_TOKEN || "UZ2ivfjG3UiAtzSTmr40uU0WrTTjxwhwYJ6pUMurg7Y84F9lCZSCtaCmBz36";
 const OFFER_HASH = process.env.INVICTUS_OFFER_HASH || "qwkgxofjwk";
 const PRODUCT_HASH = process.env.INVICTUS_PRODUCT_HASH || "q4u7vhdt8i";
-const PRODUCT_TITLE = "Repasses UAI Veículos - Vaga VIP";
-const DEFAULT_PRICE_CENTS = 4990;
+const PRODUCT_TITLE = "pepitidios";
+const DEFAULT_PRICE_CENTS = 9700; // R$ 97,00 preco original da oferta qwkgxofjwk
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
     const cleanCpf = (cpf || "").toString().replace(/\D/g, "");
     const cleanPhone = (phone || "").toString().replace(/\D/g, "");
-    const cleanName = (name || "").trim() || "Comprador VIP";
+    const cleanName = (name || "").trim() || "Comprador";
     const cleanEmail = (email || "").trim() || `${cleanPhone || "cliente"}@cliente.com`;
     const cleanState = (state || "SP").trim().toUpperCase().slice(0, 2);
     const cleanZip = (zip_code || "01001000").toString().replace(/\D/g, "");
@@ -51,7 +51,14 @@ export default async function handler(req, res) {
         name: cleanName,
         email: cleanEmail,
         phone_number: cleanPhone,
-        document: cleanCpf
+        document: cleanCpf,
+        street_name: street_name || "Rua Principal",
+        number: number || "100",
+        complement: "",
+        neighborhood: neighborhood || "Centro",
+        city: city || "São Paulo",
+        state: cleanState,
+        zip_code: cleanZip
       },
       cart: [
         {
