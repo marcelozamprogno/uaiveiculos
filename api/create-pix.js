@@ -26,7 +26,9 @@ export default async function handler(req, res) {
     if (typeof body === "string") {
       try {
         body = JSON.parse(body);
-      } catch (e) {}
+      } catch (e) {
+        body = {};
+      }
     }
     body = body || {};
     const data = body.data || body;
@@ -39,7 +41,7 @@ export default async function handler(req, res) {
     const cleanState = (state || "SP").trim().toUpperCase().slice(0, 2);
     const cleanZip = (zip_code || "01001000").toString().replace(/\D/g, "");
 
-    const host = req.headers.host || "uaiveiculos-ztbn.vercel.app";
+    const host = req.headers.host || "uaiveiculos.vercel.app";
     const protocol = req.headers["x-forwarded-proto"] || "https";
     const siteUrl = process.env.SITE_URL || `${protocol}://${host}`;
 
@@ -136,7 +138,7 @@ export default async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({
       success: false,
-      error: "Erro inesperado: " + (err.message || String(err))
+      error: "Erro no servidor: " + (err.message || String(err))
     });
   }
 }
