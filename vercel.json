@@ -1,10 +1,26 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/repasse/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/repasse/(.*)",
+      "destination": "/repasse/$1"
+    },
+    {
+      "source": "/repasse",
+      "destination": "/repasse/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
