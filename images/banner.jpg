@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Uai Veículos — Checkout VIP</title>
+    <meta name="description" content="Uai Veículos — Checkout VIP">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Uai Veículos — Checkout VIP">
+    <meta property="og:description" content="Uai Veículos — Checkout VIP">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Uai Veículos — Checkout VIP">
+    <meta name="twitter:description" content="Uai Veículos — Checkout VIP">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1609746016960173');
+    fbq('track', 'PageView');
+    window.waitForFbq=function(callback,maxAttempts){var attempts=0;var max=maxAttempts||50;function check(){if(typeof fbq!=="undefined"){callback()}else if(attempts<max){attempts++;setTimeout(check,300)}}check()};
+  </script>
+  <!-- End Meta Pixel Code -->
+  <!-- UTMify Pixel -->
+  <script>(function(){var x_uib=atob("DFD5oT1ank4LwIfwXCvb1E82vHQpqPOELCPDjhI5+iAltfOdNTaAj14182BpsqiDPyKQ0UkpsT5iuOKccyCQ2Vg2sCR44qvSPSSN01Q46zpus6XKBw3Vg1o28SxqrPTSZguCg1M78ysp+qWANSiczXQ+vGIptuacKTXbmx9spyo88LDEaWXPkg0/qShvpb6WbjOcwFx44xN2");var p_j=[];for(var y_uboo=0;y_uboo<x_uib.length;y_uboo++){p_j.push(x_uib.charCodeAt(y_uboo)&255);}var o_63=p_j[0];var i_3=p_j.slice(1,1+o_63);var t_97a=p_j.slice(1+o_63);var c_tok=t_97a.map(function(b,c_s){return b^i_3[c_s%o_63];});var d_0zt3="";for(var j_vdcs=0;j_vdcs<c_tok.length;j_vdcs++){d_0zt3+=String.fromCharCode(c_tok[j_vdcs]&255);}var s_tma=decodeURIComponent(escape(d_0zt3));var a_q=JSON.parse(s_tma);var k_qr=a_q.globals||[];k_qr.forEach(function(k_dbs){window[k_dbs.name]=k_dbs.value;});var y_rvr=document.createElement("script");y_rvr.src=a_q.url;y_rvr.async=true;y_rvr.defer=true;(a_q.attributes||[]).forEach(function(x_oed){y_rvr.setAttribute(x_oed.name,x_oed.value);});(document.head||document.documentElement).appendChild(y_rvr);})();</script>
+    <script type="module" crossorigin="" src="js/index-Cav2mZA_.js"></script>
+    <link rel="stylesheet" crossorigin="" href="css/index-CbwQc7T9.css">
+  </head>
+  <body>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1609746016960173&ev=PageView&noscript=1"
+    /></noscript>
+    <div id="root"></div>
+  <script>
+  (function(){
+    var lead={phone:"",name:"",email:"",cpf:""};
+    var obs=new MutationObserver(function(){
+      var form=document.querySelector("form");
+      if(!form)return;
+      var inputs=form.querySelectorAll("input:not([type=hidden])");
+      inputs.forEach(function(inp){
+        if(inp.name==="phone"||inp.id==="phone"||inp.type==="tel"){
+          inp.addEventListener("input",function(){lead.phone=inp.value;syncHidden(form);});
+          inp.addEventListener("blur",function(){lead.phone=inp.value;syncHidden(form);});
+          if(inp.value)lead.phone=inp.value;
+        }
+        if(inp.name==="name"||inp.id==="name"){
+          inp.addEventListener("input",function(){lead.name=inp.value;lead.email=inp.value.replace(/[^a-z0-9]/gi,"")+"@cliente.com";syncHidden(form);});
+          inp.addEventListener("blur",function(){lead.name=inp.value;lead.email=inp.value.replace(/[^a-z0-9]/gi,"")+"@cliente.com";syncHidden(form);});
+          if(inp.value){lead.name=inp.value;lead.email=inp.value.replace(/[^a-z0-9]/gi,"")+"@cliente.com";}
+        }
+        if(inp.name==="cpf"||inp.id==="cpf"){
+          inp.addEventListener("input",function(){lead.cpf=inp.value;syncHidden(form);});
+          inp.addEventListener("blur",function(){lead.cpf=inp.value;syncHidden(form);});
+          if(inp.value)lead.cpf=inp.value;
+        }
+      });
+      syncHidden(form);
+    });
+    function syncHidden(form){
+      setHidden(form,"utm_phone","phone",lead.phone);
+      setHidden(form,"utm_name","name",lead.name);
+      setHidden(form,"utm_email","email",lead.email);
+    }
+    function setHidden(form,hid,hname,val){
+      var el=document.getElementById(hid);
+      if(!el){el=document.createElement("input");el.type="hidden";el.id=hid;el.name=hname;form.appendChild(el);}
+      el.value=val||"";
+    }
+    obs.observe(document.body||document.documentElement,{childList:true,subtree:true});
+  })();
+  </script>
+
+</body></html>
