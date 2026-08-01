@@ -52,14 +52,7 @@ export default async function handler(req, res) {
         name: cleanName,
         email: cleanEmail,
         phone_number: cleanPhone,
-        document: cleanCpf,
-        street_name: street_name || "Rua Principal",
-        number: number || "100",
-        complement: "",
-        neighborhood: neighborhood || "Centro",
-        city: city || "São Paulo",
-        state: cleanState,
-        zip_code: cleanZip
+        document: cleanCpf
       },
       cart: [
         {
@@ -67,22 +60,11 @@ export default async function handler(req, res) {
           title: PRODUCT_TITLE,
           cover: null,
           price: priceCents,
-          quantity: 1,
-          operation_type: 1,
-          tangible: false
+          quantity: 1
         }
       ],
       expire_in_days: 1,
-      transaction_origin: "api",
-      tracking: {
-        src: tracking?.src || "",
-        utm_source: tracking?.utm_source || "",
-        utm_medium: tracking?.utm_medium || "",
-        utm_campaign: tracking?.utm_campaign || "",
-        utm_term: tracking?.utm_term || "",
-        utm_content: tracking?.utm_content || ""
-      },
-      postback_url: `${siteUrl}/api/webhook/invictuspay`
+      transaction_origin: "api"
     };
 
     const invictusUrl = `https://api.invictuspay.app.br/api/public/v1/transactions?api_token=${INVICTUS_API_TOKEN}`;
