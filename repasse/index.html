@@ -18,15 +18,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script type="module" crossorigin="" src="/js/index-Cav2mZA_.js"></script>
     <link rel="stylesheet" crossorigin="" href="/css/index-CbwQc7T9.css">
+    
+    <!-- Meta Pixel Code -->
     <script>
-        window.waitForFbq = function(callback) {
-            try {
-                if (typeof fbq === 'function') {
-                    callback();
-                }
-            } catch(e) {}
-        };
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1436806288280380');
+    fbq('track', 'PageView');
+    
+    window.waitForFbq = function(callback) {
+        if (typeof fbq === 'function') {
+            callback();
+        }
+    };
     </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1436806288280380&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
     <div id="root"></div>
