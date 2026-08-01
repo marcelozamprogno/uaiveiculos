@@ -105,7 +105,7 @@ export default async function handler(req, res) {
 
     const pixData = responseData.data || responseData.pix || responseData;
     let transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash || pixData.transaction_id;
-    let pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste || (responseData.data && responseData.data.pix_code);
+    let pixCode = pixData.pix_qr_code || pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste || (responseData.data && responseData.data.pix_code);
 
     if (!pixCode) {
       transactionId = transactionId || `tx_${Date.now()}`;
