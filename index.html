@@ -18,6 +18,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script type="module" crossorigin="" src="/js/index-Cav2mZA_.js"></script>
     <link rel="stylesheet" crossorigin="" href="/css/index-CbwQc7T9.css">
+    <script>
+        window.waitForFbq = function(callback) {
+            try {
+                if (typeof fbq === 'function') {
+                    callback();
+                }
+            } catch(e) {}
+        };
+    </script>
 </head>
 <body>
     <div id="root"></div>
