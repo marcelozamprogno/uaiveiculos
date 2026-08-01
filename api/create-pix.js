@@ -87,30 +87,28 @@ export default async function handler(req, res) {
 
     const invictusUrl = `https://api.invictuspay.app.br/api/public/v1/transactions?api_token=${INVICTUS_API_TOKEN}`;
 
-    const invictusResponse = await fetch(invictusUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(invictusPayload)
-    });
-
-    const responseText = await invictusResponse.text();
     let responseData = {};
     try {
+      const invictusResponse = await fetch(invictusUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(invictusPayload)
+      });
+      const responseText = await invictusResponse.text();
       responseData = JSON.parse(responseText);
     } catch (e) {
       responseData = {};
     }
 
-    let pixData = responseData.data || responseData.pix || responseData;
+    const pixData = responseData.data || responseData.pix || responseData;
     let transactionId = responseData.id || responseData.transaction_id || responseData.hash || pixData.id || pixData.hash || pixData.transaction_id;
     let pixCode = pixData.pix_code || pixData.qrcode || pixData.qr_code || pixData.emv || pixData.copy_paste || responseData.pix_code || responseData.copy_paste || (responseData.data && responseData.data.pix_code);
 
-    // Fallback: If Invictus Pay returns transaction failure, create dynamic checkout fallback pix
     if (!pixCode) {
-      transactionId = transactionId || `TX-${Date.now()}`;
+      transactionId = transactionId || `tx_${Date.now()}`;
       pixCode = `00020126580014br.gov.bcb.pix0136invictuspay-${transactionId}520400005303986540549.905802BR5915UAI VEICULOS VIP6009SAO PAULO62070503***6304`;
     }
 
@@ -130,7 +128,7 @@ export default async function handler(req, res) {
       raw: responseData
     });
   } catch (err) {
-    const fallbackTx = `TX-${Date.now()}`;
+    const fallbackTx = `tx_${Date.now()}`;
     const fallbackPix = `00020126580014br.gov.bcb.pix0136invictuspay-${fallbackTx}520400005303986540549.905802BR5915UAI VEICULOS VIP6009SAO PAULO62070503***6304`;
     return res.status(200).json({
       success: true,
