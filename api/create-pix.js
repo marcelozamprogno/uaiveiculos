@@ -4,7 +4,7 @@ const INVICTUS_API_TOKEN = process.env.INVICTUS_API_TOKEN || "UZ2ivfjG3UiAtzSTmr
 const OFFER_HASH = process.env.INVICTUS_OFFER_HASH || "qwkgxofjwk";
 const PRODUCT_HASH = process.env.INVICTUS_PRODUCT_HASH || "q4u7vhdt8i";
 const PRODUCT_TITLE = "pepitidios";
-const DEFAULT_PRICE_CENTS = 4990;
+const DEFAULT_PRICE_CENTS = 1990;
 
 const META_PIXEL_ID = "1436806288280380";
 const META_ACCESS_TOKEN = "EAAPmwKtLZBdQBSHft1s24Iaz7D8bRzLYaQZB8C1SPgBIva0k5mjfWZA3UZBIt8zI8IQDaDvekgCucxqHuLTDSa8rZCABSbFAK8tvozWiA7FTgHeKHUjx4naeVRWn7ue3hFPpiEqwk3khshkb0SjzeuIbFZCnZCtEZA3KeZA1Ewwnb5vgoZC5fZBL8NerR1hIVSNQgZDZD";
@@ -155,7 +155,7 @@ export default async function handler(req, res) {
 
     if (!pixCode) {
       transactionId = transactionId || `tx_${Date.now()}`;
-      pixCode = `00020126580014br.gov.bcb.pix0136invictuspay-${transactionId}520400005303986540549.905802BR5915UAI VEICULOS VIP6009SAO PAULO62070503***6304`;
+      pixCode = `00020126580014br.gov.bcb.pix0136invictuspay-${transactionId}520400005303986540519.905802BR5915UAI VEICULOS VIP6009SAO PAULO62070503***6304`;
     }
 
     const qrCodeUrl = pixData.pix_url || pixData.qr_code_url || pixData.qrcode_url || responseData.pix_url || responseData.qr_code_url || `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(pixCode)}`;
@@ -188,7 +188,7 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     const fallbackTx = `tx_${Date.now()}`;
-    const fallbackPix = `00020126580014br.gov.bcb.pix0136invictuspay-${fallbackTx}520400005303986540549.905802BR5915UAI VEICULOS VIP6009SAO PAULO62070503***6304`;
+    const fallbackPix = `00020126580014br.gov.bcb.pix0136invictuspay-${fallbackTx}520400005303986540519.905802BR5915UAI VEICULOS VIP6009SAO PAULO62070503***6304`;
     return res.status(200).json({
       success: true,
       transaction_id: fallbackTx,
